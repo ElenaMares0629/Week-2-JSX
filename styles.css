@@ -1,28 +1,73 @@
+/* ==============================================
+   PRICING PAGE STYLES
+
+   Contents:
+   1. Reset
+   2. Page layout
+   3. Cards container
+   4. Card
+   5. Card text (title, price, features)
+   6. Buttons
+   7. Page label
+
+   Colour palette:
+   #f7f7f4  Page background (off-white)
+   #f2f1ed  Card background (warm grey)
+   #26251e  Main text (near-black)
+   50% of #26251e  Secondary text (muted)
+   ============================================== */
+
+
+/* ----------------------------------------------
+   1. RESET
+   Removes default browser spacing so every
+   element starts from zero. "border-box" makes
+   width include padding and borders.
+   ---------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
+/* ----------------------------------------------
+   2. PAGE LAYOUT
+   Sets the font and background, and centres
+   the content in the middle of the screen.
+   ---------------------------------------------- */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: #f7f7f4;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    justify-content: center;   /* Centre horizontally */
+    align-items: center;       /* Centre vertically */
+    min-height: 100vh;         /* At least full screen height */
     padding: 20px;
 }
 
+
+/* ----------------------------------------------
+   3. CARDS CONTAINER
+   Places the cards in a single row with a
+   24px gap. Cards stay on one line (no wrap).
+   ---------------------------------------------- */
 .cards-container {
     display: flex;
     flex-direction: row;
     gap: 24px;
     flex-wrap: nowrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-start;   /* Align cards to the top */
 }
 
+
+/* ----------------------------------------------
+   4. CARD
+   A single plan card: 320px wide, stacked
+   vertically, with a minimum height so both
+   cards line up.
+   ---------------------------------------------- */
 .card {
     display: flex;
     flex-direction: column;
@@ -31,14 +76,21 @@ body {
     border-radius: 4px;
     padding: 16px;
     width: 320px;
-    flex-shrink: 0;
+    flex-shrink: 0;            /* Card never squashes narrower */
 }
 
+/* Top section of the card (everything above the button) */
 .card-top {
     display: flex;
     flex-direction: column;
 }
 
+
+/* ----------------------------------------------
+   5. CARD TEXT
+   ---------------------------------------------- */
+
+/* Plan name, e.g. "Hobby" or "Pro" */
 .card-title {
     font-size: 22px;
     line-height: 28px;
@@ -47,6 +99,7 @@ body {
     margin-bottom: 8px;
 }
 
+/* Price row: aligns amount and period on the same text baseline */
 .card-price {
     font-size: 20px;
     color: rgba(38, 37, 30, 0.5);
@@ -54,32 +107,38 @@ body {
     align-items: baseline;
 }
 
+/* Price amount, e.g. "$20" or "Free" */
 .card-price-amount {
     font-size: 22px;
     font-weight: 400;
     color: rgba(38, 37, 30, 0.5);
 }
 
+/* Billing period, e.g. "/mo." (smaller than the amount) */
 .card-price-period {
     font-size: 14px;
     color: rgba(38, 37, 30, 0.5);
 }
 
+/* Features block: 32px space before the button */
 .card-content {
     margin-bottom: 32px;
 }
 
+/* "Includes:" heading above the feature list */
 .includes-text {
     font-size: 16px;
     color: rgba(38, 37, 30, 0.5);
-    margin: 16px 0px;
+    margin: 16px 0px;          /* 16px above and below */
 }
 
+/* Feature list: removes default bullet points */
 .features-list {
     list-style: none;
     padding: 0;
 }
 
+/* Each feature row: checkmark and text side by side */
 .features-list li {
     display: flex;
     align-items: center;
@@ -88,61 +147,81 @@ body {
     color: #26251e;
 }
 
+/* The ✓ icon before each feature */
 .checkmark {
     color: #26251e;
     font-size: 14px;
-    margin-right: 10px;
+    margin-right: 10px;        /* Space between icon and text */
     font-weight: 400;
 }
 
+
+/* ----------------------------------------------
+   6. BUTTONS
+   Default style is the light grey (secondary)
+   pill button. Add ".primary" for the black
+   version.
+   ---------------------------------------------- */
 .download-button {
-    margin-top: auto;
-    width: fit-content;
+    margin-top: auto;          /* Pushes button to the bottom of the card */
+    width: fit-content;        /* Button only as wide as its label */
     background-color: #e6e5e0;
     border: none;
-    border-radius: 999px;
+    border-radius: 999px;      /* Fully rounded "pill" shape */
     padding: 14px 24px;
     font-size: 16px;
     font-weight: 500;
     color: #333;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease;   /* Smooth colour change on hover */
 }
 
+/* Secondary button: hover (mouse over) */
 .download-button:hover {
     background-color: #D8D6CE;
 }
 
+/* Secondary button: active (while clicking) */
 .download-button:active {
     background-color: #D8D6CE;
 }
 
+/* Primary button: black with white text */
 .download-button.primary {
     background-color: #111;
     color: #fff;
 }
 
+/* Primary button: hover */
 .download-button.primary:hover {
     background-color: #333;
 }
 
+/* Primary button: active */
 .download-button.primary:active {
     background-color: #333;
 }
 
+
+/* ----------------------------------------------
+   7. PAGE LABEL
+   White badge fixed to the top centre of the
+   screen. Stays in place when scrolling.
+   ---------------------------------------------- */
 .page-label {
     position: fixed;
     top: 16px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%);   /* Shifts back by half its width to truly centre it */
     font-size: 14px;
     color: #666;
     background: #fff;
     padding: 8px 16px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);   /* Soft drop shadow */
 }
 
+/* Bold part of the label ("HTML version") */
 .page-label strong {
     color: #333;
 }
