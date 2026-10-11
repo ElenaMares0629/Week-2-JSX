@@ -202,7 +202,16 @@ body {
     background-color: #333;
 }
 
+.download-button.tertiary {
+    background-color: transparent;
+    border: 1px solid #bcbaaf;
+    color: #333;
+}
 
+.download-button.tertiary:hover {
+    background-color: #aeaa94;
+    color: #fff;
+}
 /* ----------------------------------------------
    7. PAGE LABEL
    White badge fixed to the top centre of the
